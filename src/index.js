@@ -43,8 +43,8 @@ export default function (Vue) {
      * @param {?String}          value
      */
     bind (el, {value}) {
-      updateMask(el, value);
-      updateValue(el);
+      updateMask(el.querySelector('input'), value);
+      updateValue(el.querySelector('input'));
     },
 
     /**
@@ -64,11 +64,11 @@ export default function (Vue) {
 
       // update mask first if changed
       if(isMaskChanged){
-        updateMask(el, value);
+        updateMask(el.querySelector('input'), value);
       }
 
       // update value
-      updateValue(el, isMaskChanged);
+      updateValue(el.querySelector('input'), isMaskChanged);
     }
   });
 };
