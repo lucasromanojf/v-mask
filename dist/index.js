@@ -9,8 +9,8 @@ exports.default = function (Vue) {
     bind: function bind(el, _ref) {
       var value = _ref.value;
 
-      updateMask(el, value);
-      updateValue(el);
+      updateMask(el.querySelector('input'), value);
+      updateValue(el.querySelector('input'));
     },
     componentUpdated: function componentUpdated(el, _ref2) {
       var value = _ref2.value,
@@ -20,10 +20,10 @@ exports.default = function (Vue) {
       var isMaskChanged = value !== oldValue;
 
       if (isMaskChanged) {
-        updateMask(el, value);
+        updateMask(el.querySelector('input'), value);
       }
 
-      updateValue(el, isMaskChanged);
+      updateValue(el.querySelector('input'), isMaskChanged);
     }
   });
 };
